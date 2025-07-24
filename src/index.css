@@ -1,0 +1,10 @@
+@font-face {
+  font-family: Shakila;
+  src: url('./assets/fonts/Shakila.ttf');
+}
+
+@import "tailwindcss";
+
+@theme{
+  --font-shakila: Shakila,"sans-serif"
+}
