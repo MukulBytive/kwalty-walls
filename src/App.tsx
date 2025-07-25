@@ -5,7 +5,7 @@ import axios from "axios";
 import topten from "./assets/topten.png";
 import flyingChocoBall from "./assets/flyingChocoball.png";
 import dayBg from "./assets/dayBg.png";
-import buyNowButton from "./assets/buyNowButton.png";
+// import buyNowButton from "./assets/buyNowButton.png";
 import tempDay from "./assets/tempDay.png";
 import nightBg from "./assets/nightBg.png";
 import tempNight from "./assets/tempNight.png";
@@ -93,8 +93,8 @@ function App() {
     });
   }
   return (
-    <div className="flex min-w-[320px]  flex-col  h-screen w-full relative">
-      <div className="aspect-video bg-neutral-100  h-auto w-full relative flex rounded-xl">
+    <div className="flex min-w-[320px] justify-center flex-col  h-screen w-full relative">
+      <div className="aspect-video bg-neutral-100  h-auto max-h-screen w-full relative flex rounded-xl">
         {/* FLYING CHOCOBALL BACKGROUND */}
         <img
           src={flyingChocoBall}
@@ -106,27 +106,30 @@ function App() {
         >
           <img
             src={icecreamBg}
-            className="aspect-auto w-full h-full absolute"
+            className="w-full h-full absolute"
           />
           <img
             src={topten}
-            className="aspect-auto h-8 xs:h-12 md:h-16 lg:h-20 absolute right-2 top-5 lg:top-10 xs:right-4 md:right-10 lg:right-20"
+            className="h-[10vw] z-20 absolute right-[9vw] xs:right-[11vw] sm:right-[12vw] lg:right-[11vw] top-[7vw] xs:top-[5vw] md:top-[3vw] "
           />
           <img
             src={chocolateBg}
-            className="self-center absolute top-[30%] xs:top-[20%]"
+            className="self-center absolute top-[15vw] xl:top-[10vw]"
           />
           <img
             src={icecream}
-            className="absolute w-full object-cover h-full left-[55px] xs:left-[60px] md:left-[70px] lg:left-[80px] z-30"
+            className="bottom-0 mix-blend-normal absolute w-full object-cover h-[95%] xs:h-full left-[9vw] xs:left-[10vw] xl:left-[6vw] z-30"
           />
           <img
             src={sixLayersOfExtra}
-            className="right-5 absolute w-full h-[5rem] xs:h-[6rem] sm:h-[10rem] md:h-[10rem] xl:h-[15rem] object-contain bottom-0 z-40"
+            className="xl:bottom-[-2vw] xl:right-[-1vw] right-[1vw] h-[23vw] xl:h-[18vw] absolute w-full object-contain bottom-0 z-40"
           />
+          {/* xs:right-[-100px] sm:right-[-150px] md:right-[-180px]
+          lg:right-[-220px] */}
+          {/* h-[7rem] xs:h-[11rem] sm:h-[13rem] md:h-[13rem] */}
           <img
             src={pack}
-            className="absolute bottom-0 xs:bottom-3 sm:bottom-5 md:bottom-7 lg:bottom-10 w-full h-[7rem] xs:h-[11rem] sm:h-[13rem] md:h-[13rem] xl:h-[16rem] object-contain right-[-70px] xs:right-[-100px] sm:right-[-150px] md:right-[-180px] lg:right-[-220px] z-40"
+            className="right-[-17vw] xl:right-[-16.5vw] h-[30vw] xl:h-[28vw] bottom-[3vw] xl:bottom-[-1vw]  absolute  w-full object-contain z-40"
           />
         </section>
 
@@ -158,13 +161,13 @@ function App() {
 
             <img
               src={isNight ? textNight : textDay}
-              className="mt-[6vw] ml-[3vw] z-30 w-full object-contain "
+              className="mt-[6vw] ml-[4vw] z-30 w-full object-contain "
             />
 
-            <img
+            {/* <img
               src={buyNowButton}
               className="mt-[6vw] z-30 w-full ml-[3.5vw] h-[7vw] object-contain "
-            />
+            /> */}
           </div>
         </section>
       </div>
