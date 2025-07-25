@@ -6,5 +6,6 @@
 @import "tailwindcss";
 
 @theme{
-  --font-shakila: Shakila,"sans-serif"
+  --font-shakila: Shakila,"sans-serif";
+  --breakpoint-xs:425px;
 }
