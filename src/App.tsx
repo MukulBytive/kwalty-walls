@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-  
+
 import axios from "axios";
 
 import topten from "./assets/topten.png";
@@ -18,7 +18,7 @@ import sixLayersOfExtra from "./assets/sixLayersOfExtra.png";
 import pack from "./assets/pack.png";
 import textDay from "./assets/textDay.png";
 import textNight from "./assets/textNight.png";
-
+import { motion } from "motion/react";
 // import icecream from "./assets/main/iceCream.png";
 // import tempNight from "./assets/main/tempNight.png";
 
@@ -28,7 +28,6 @@ const DEFAULT_LOCATION = {
 };
 
 function App() {
-  
   const [currTemperature, setCurrTemperature] = useState(30);
   const [loading, setLoading] = useState(false);
   const [isNight, setIsNight] = useState(false);
@@ -98,38 +97,62 @@ function App() {
       <div className="aspect-video bg-neutral-100  h-auto max-h-screen overflow-hidden w-full relative flex">
         {/* LEFT SECTION */}
         {/* FLYING CHOCOBALL BACKGROUND */}
+        {/* <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeIn" }}
+        > */}
         <img
           src={flyingChocoBall}
-          className="absolute z-30 self-center  w-full px-5"
+          className="absolute z-20 self-center  w-full px-5"
         />
+        {/* </motion.div> */}
         <section
           className={`h-full w-1/2 flex flex-col relative bg-[url(./assets/bgLeft.png)] `}
         >
           <img
             src={flyingChocoBallVertical}
-            className="absolute w-1/2 top-0 h-full py-[5%] z-10 object-contain right-0  border-white px-5"
+            className="absolute w-1/2 top-0 h-full py-[5%] z-20 object-contain right-0  border-white px-5"
           />
-          <img src={icecreamBg} className="w-full h-full absolute" />
+          <img src={icecreamBg} className="w-full h-full  absolute" />
           <img
             src={topten}
             className="xl:h-[8vw] h-[10vw] z-20 absolute right-[16%] xl:right-[25%] top-[7%] xl:top-[4%] "
           />
-          <img
-            src={chocolateBg}
-            className="self-center absolute top-[21%] xl:top-[8%]"
-          />
-          <img
+
+            <motion.img
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.5, ease: "easeIn" }}
+              src={chocolateBg}
+              className="self-center z-10 absolute top-[21%] xl:top-[8%]"
+            />
+
+          <motion.img
+            initial={{ y: 500 }}
+            animate={{ y: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 120,
+              damping: 12,
+              duration: 1,
+            }}
             src={icecream}
-            className="bottom-[-3vw] object-contain self-center mx-auto absolute w-full  h-[85%] z-30"
+            className="bottom-[-3vw] object-contain absolute w-full  h-[85%] z-30"
           />
-          <img
+
+          <motion.img
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
             src={sixLayersOfExtra}
             className=" xl:bottom-[-5%] bottom-0 xl:right-[-2%] right-[-1%] h-[19vw] md:h-[21vw] xl:h-[18vw] absolute w-full object-contain z-40"
           />
-          {/* xs:right-[-100px] sm:right-[-150px] md:right-[-180px]
-          lg:right-[-220px] */}
-          {/* h-[7rem] xs:h-[11rem] sm:h-[13rem] md:h-[13rem] */}
-          <img
+
+          <motion.img
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
             src={pack}
             className="right-[-17vw] xl:right-[-16.5vw] h-[30vw] xl:h-[25vw] bottom-[0%] md:bottom-[5%] xl:bottom-[1%]  absolute  w-full object-contain z-40"
           />
@@ -158,10 +181,17 @@ function App() {
             {/* LOGO */}
             <img src={logo} className="h-[6vw] absolute z-20 right-0" />
 
-            <img
-              src={isNight ? textNight : textDay}
-              className="mt-[6vw] ml-[4vw] z-30 w-full object-contain "
-            />
+            {/* TEXT */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeIn" }}
+            >
+              <img
+                src={isNight ? textNight : textDay}
+                className="mt-[6vw] ml-[4vw] z-30 w-full object-contain "
+              />
+            </motion.div>
 
             {/* <img
               src={buyNowButton}
