@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect,  useState } from "react";
 
 import axios from "axios";
 
@@ -31,13 +31,13 @@ function App() {
   const [currTemperature, setCurrTemperature] = useState(30);
   const [loading, setLoading] = useState(false);
   // const [isNight, setIsNight] = useState(false);
-  const isNight = useMemo(() => {
-    const now = new Date();
-    const hour = now.getHours(); // 0–23
-
-    // Daytime is from 5 AM (5) to 4:59 PM (16)
-    return hour >= 5 && hour < 17;
-  }, []);
+const isNight = () => {
+  const now = new Date();
+  const hour = now.getHours(); // 0–23
+  console.log(hour)
+  // Night = before 5 AM or 5 PM onwards
+  return hour < 5 || hour >= 17;
+};
   console.log(loading);
   useEffect(() => {
     async function getTemperature() {
@@ -114,8 +114,6 @@ function App() {
           transition={{
             duration: 1.5,
             ease: "easeInOut",
-            repeat: Infinity,
-            repeatType: "loop",
           }}
           src={flyingChocoBall}
           className="absolute z-20 self-center  w-full px-5"
@@ -130,8 +128,8 @@ function App() {
             transition={{
               duration: 1.5,
               ease: "easeInOut",
-              repeat: Infinity,
-              repeatType: "loop",
+              // repeat: Infinity,
+              // repeatType: "loop",
             }}
             src={flyingChocoBallVertical}
             className="absolute w-1/2 top-0 h-full py-[5%] z-20 object-contain right-0  border-white px-5"
@@ -184,10 +182,10 @@ function App() {
         <section className="w-1/2 relative h-full z-50 ">
           {/* DAY BG */}
           <img
-            src={isNight ? nightBg : dayBg}
+            src={isNight() ? nightBg : dayBg}
             className="absolute top-0 object-cover z-10 h-full w-full "
           />
-          <div className="flex flex-col  absolute top-[7vw] z-20 w-[70%]">
+          <div className="flex flex-col  absolute top-[10%] z-20 w-[70%]">
             <div className=" flex z-20 left-0 ">
               <div className="relative  bg-white pl-2 pr-[3.5vw]  items-center flex">
                 <p className="font-shakila text-[4vw] text-[#9165c9] font-medium">
@@ -195,7 +193,7 @@ function App() {
                 </p>
                 <img
                   className="h-full scale-110 right-[-3.5vw] absolute"
-                  src={isNight ? tempNight : tempDay}
+                  src={isNight() ? tempNight : tempDay}
                 />
               </div>
             </div>
@@ -210,23 +208,23 @@ function App() {
               transition={{ duration: 1, ease: "easeIn" }}
             >
               <img
-                src={isNight ? textNight : textDay}
-                className="xl:mt-[5%] mt-[15%] ml-[4vw] z-30 w-full object-contain "
+                src={isNight() ? textNight : textDay}
+                className="xl:mt-[7%] mt-[10%] ml-[4vw] z-30 w-full xl:h-full h-[80%] object-contain "
               />
             </motion.div>
 
             <motion.img
               animate={{
-                scale: [1, 1.2, 1], // Zoom in to 1.1x, then back to 1x
+                scale: [1, 1.1, 1], // Zoom in to 1.1x, then back to 1x
               }}
               transition={{
-                duration: 1.5,
+                duration: 0.9,
                 repeat: Infinity,
                 repeatType: "loop",
                 ease: "easeInOut",
               }}
               src={buyNowButton}
-              className="lg:mt-[5%] mt-[12%] z-30 w-full ml-[3.5vw] h-[7vw] object-contain "
+              className="xl:mt-[10%] md:mt-[14%] mt-[8%] z-30 w-full ml-[3.5vw] h-[5vw] object-contain "
             />
           </div>
         </section>
