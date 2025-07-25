@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import axios from "axios";
 
@@ -6,7 +6,7 @@ import topten from "./assets/topten.png";
 import flyingChocoBall from "./assets/flyingChocoball.png";
 import flyingChocoBallVertical from "./assets/flyingChocoballVertical.png";
 import dayBg from "./assets/dayBg.png";
-// import buyNowButton from "./assets/buyNowButton.png";
+import buyNowButton from "./assets/buyNowButton.png";
 import tempDay from "./assets/tempDay.png";
 import nightBg from "./assets/nightBg.png";
 import tempNight from "./assets/tempNight.png";
@@ -30,7 +30,14 @@ const DEFAULT_LOCATION = {
 function App() {
   const [currTemperature, setCurrTemperature] = useState(30);
   const [loading, setLoading] = useState(false);
-  const [isNight, setIsNight] = useState(false);
+  // const [isNight, setIsNight] = useState(false);
+  const isNight = useMemo(() => {
+    const now = new Date();
+    const hour = now.getHours(); // 0–23
+
+    // Daytime is from 5 AM (5) to 4:59 PM (16)
+    return hour >= 5 && hour < 17;
+  }, []);
   console.log(loading);
   useEffect(() => {
     async function getTemperature() {
@@ -51,11 +58,10 @@ function App() {
           }
         );
         setCurrTemperature(data?.main?.temp?.toFixed(0));
-        const sunriseTime = data.sys.sunrise * 1000; // Convert UNIX timestamp to milliseconds
-        const sunsetTime = data.sys.sunset * 1000; // Convert UNIX timestamp to milliseconds
-        const currentTime = new Date().getTime();
-        const isDaytime = currentTime > sunriseTime && currentTime < sunsetTime;
-        if (!isDaytime) setIsNight(true);
+        // const sunriseTime = data.sys.sunrise * 1000;
+        // const sunsetTime = data.sys.sunset * 1000;
+        // const isDaytime = currentTime > sunriseTime && currentTime < sunsetTime;
+        // if (!isDaytime) setIsNight(true);
       } catch (error) {
         console.error("Error fetching temprature data:", error);
         return null;
@@ -102,7 +108,15 @@ function App() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, ease: "easeIn" }}
         > */}
-        <img
+        <motion.img
+          // initial={{ opacity: 0 }}
+          animate={{ opacity: 1, scale: [1, 1.05, 1] }}
+          transition={{
+            duration: 1.5,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "loop",
+          }}
           src={flyingChocoBall}
           className="absolute z-20 self-center  w-full px-5"
         />
@@ -110,7 +124,15 @@ function App() {
         <section
           className={`h-full w-1/2 flex flex-col relative bg-[url(./assets/bgLeft.png)] `}
         >
-          <img
+          <motion.img
+            // initial={{ opacity: 0 }}
+            animate={{ opacity: 1, scale: [1, 1.05, 1] }}
+            transition={{
+              duration: 1.5,
+              ease: "easeInOut",
+              repeat: Infinity,
+              repeatType: "loop",
+            }}
             src={flyingChocoBallVertical}
             className="absolute w-1/2 top-0 h-full py-[5%] z-20 object-contain right-0  border-white px-5"
           />
@@ -120,13 +142,13 @@ function App() {
             className="xl:h-[8vw] h-[10vw] z-20 absolute right-[16%] xl:right-[25%] top-[7%] xl:top-[4%] "
           />
 
-            <motion.img
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.5, ease: "easeIn" }}
-              src={chocolateBg}
-              className="self-center z-10 absolute top-[21%] xl:top-[8%]"
-            />
+          <motion.img
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5, ease: "easeIn" }}
+            src={chocolateBg}
+            className="self-center z-10 absolute top-[21%] xl:top-[8%]"
+          />
 
           <motion.img
             initial={{ y: 500 }}
@@ -189,14 +211,23 @@ function App() {
             >
               <img
                 src={isNight ? textNight : textDay}
-                className="mt-[6vw] ml-[4vw] z-30 w-full object-contain "
+                className="xl:mt-[5%] mt-[15%] ml-[4vw] z-30 w-full object-contain "
               />
             </motion.div>
 
-            {/* <img
+            <motion.img
+              animate={{
+                scale: [1, 1.2, 1], // Zoom in to 1.1x, then back to 1x
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "easeInOut",
+              }}
               src={buyNowButton}
-              className="mt-[6vw] z-30 w-full ml-[3.5vw] h-[7vw] object-contain "
-            /> */}
+              className="lg:mt-[5%] mt-[12%] z-30 w-full ml-[3.5vw] h-[7vw] object-contain "
+            />
           </div>
         </section>
       </div>
