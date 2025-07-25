@@ -12,7 +12,7 @@ import tempNight from "./assets/tempNight.png";
 import logo from "./assets/logo.png";
 import icecreamBg from "./assets/iceCreameBg.png";
 import chocolateBg from "./assets/chocolateBg.png";
-import icecream from "./assets/icecream.png";
+import icecream from "./assets/icecream2.png";
 import sixLayersOfExtra from "./assets/sixLayersOfExtra.png";
 import pack from "./assets/pack.png";
 import textDay from "./assets/textDay.png";
@@ -108,26 +108,26 @@ function App() {
           {/* right-[9vw] xs:right-[11vw] sm:right-[7.5vw] lg: */}
           <img
             src={topten}
-            className="h-[10vw] z-20 absolute right-[11vw] top-[3vw] lg:top-[1vw] xl:top-[0.5vw] "
+            className="h-[10vw] z-20 absolute right-[9vw] md:right-[11vw] top-[1.5vw] lg:top-[1vw] xl:top-[0.5vw] "
           />
           <img
             src={chocolateBg}
-            className="self-center absolute top-[15vw] xl:top-[10vw]"
+            className="self-center absolute top-[10vw] md:top-[15vw] xl:top-[10vw]"
           />
           <img
             src={icecream}
-            className="bottom-0  mix-blend-normal absolute w-full object-cover h-full left-[10vw] xl:left-[6vw] z-30"
+            className="bottom-[-3vw] object-contain self-center mx-auto absolute w-full  h-[85%] z-30"
           />
           <img
             src={sixLayersOfExtra}
-            className="xl:bottom-[-2vw] xl:right-[-1vw] right-[1vw] h-[23vw] xl:h-[18vw] absolute w-full object-contain bottom-0 z-40"
+            className="xl:bottom-[-2vw] bottom-[-2vw] right-[-1vw] h-[19vw] md:h-[21vw] xl:h-[18vw] absolute w-full object-contain z-40"
           />
           {/* xs:right-[-100px] sm:right-[-150px] md:right-[-180px]
           lg:right-[-220px] */}
           {/* h-[7rem] xs:h-[11rem] sm:h-[13rem] md:h-[13rem] */}
           <img
             src={pack}
-            className="right-[-17vw] xl:right-[-16.5vw] h-[30vw] xl:h-[28vw] bottom-[3vw] xl:bottom-[-1vw]  absolute  w-full object-contain z-40"
+            className="right-[-17vw] xl:right-[-16.5vw] h-[30vw] xl:h-[28vw] bottom-[-1vw] md:bottom-[-1vw]  absolute  w-full object-contain z-40"
           />
         </section>
 
