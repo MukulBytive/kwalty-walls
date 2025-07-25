@@ -44,6 +44,7 @@ console.log(loading)
             params: {
               //@ts-ignore
               lat: location?.lat || DEFAULT_LOCATION.lat,
+                 //@ts-ignore
               lon: location?.long || DEFAULT_LOCATION.long,
               appid: "947ab204f923e1895bf76a4f07e070b6",
               units: "metric",
