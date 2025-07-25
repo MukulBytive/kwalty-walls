@@ -34,7 +34,7 @@ function App() {
 const isNight = () => {
   const now = new Date();
   const hour = now.getHours(); // 0–23
-  console.log(hour)
+  // console.log(hour)
   // Night = before 5 AM or 5 PM onwards
   return hour < 5 || hour >= 17;
 };
@@ -185,48 +185,51 @@ const isNight = () => {
             src={isNight() ? nightBg : dayBg}
             className="absolute top-0 object-cover z-10 h-full w-full "
           />
-          <div className="flex flex-col  absolute top-[10%] z-20 w-[70%]">
-            <div className=" flex z-20 left-0 ">
-              <div className="relative  bg-white pl-2 pr-[3.5vw]  items-center flex">
-                <p className="font-shakila text-[4vw] text-[#9165c9] font-medium">
-                  {currTemperature}&deg;C
-                </p>
-                <img
-                  className="h-full scale-110 right-[-3.5vw] absolute"
-                  src={isNight() ? tempNight : tempDay}
+          <div className="flex flex-col mt-[10%] h-[90%] border-white absolute z-20 w-[70%]">
+            {/* header */}
+
+              <div className=" flex z-20 left-0 justify-between">
+                <div className="relative  bg-white pl-2 pr-[3.5vw]  items-center flex">
+                  <p className="font-shakila text-[4vw] text-[#9165c9] font-medium">
+                    {currTemperature}&deg;C
+                  </p>
+                  <img
+                    className="h-full scale-110 right-[-3.5vw] absolute"
+                    src={isNight() ? tempNight : tempDay}
+                  />
+                </div>
+                {/* LOGO */}
+                <img src={logo} className="h-[6vw] z-20 right-0" />
+              </div>
+
+              <div className="h-full flex flex-col justify-center md:gap-14">
+                {/* TEXT */}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, ease: "easeIn" }}
+                >
+                  <img
+                    src={isNight() ? textNight : textDay}
+                    className=" ml-[4vw]  z-30 w-full xl:h-full md:h-[120%] h-[80%] object-contain "
+                  />
+                </motion.div>
+                {/* Buy Now */}
+                <motion.img
+                  animate={{
+                    scale: [1, 1.1, 1], // Zoom in to 1.1x, then back to 1x
+                  }}
+                  transition={{
+                    duration: 0.9,
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    ease: "easeInOut",
+                  }}
+                  src={buyNowButton}
+                  className=" z-30 w-full ml-[3.5vw] h-[5vw] object-contain "
                 />
               </div>
             </div>
-
-            {/* LOGO */}
-            <img src={logo} className="h-[6vw] absolute z-20 right-0" />
-
-            {/* TEXT */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeIn" }}
-            >
-              <img
-                src={isNight() ? textNight : textDay}
-                className="xl:mt-[7%] mt-[10%] ml-[4vw] z-30 w-full xl:h-full h-[80%] object-contain "
-              />
-            </motion.div>
-
-            <motion.img
-              animate={{
-                scale: [1, 1.1, 1], // Zoom in to 1.1x, then back to 1x
-              }}
-              transition={{
-                duration: 0.9,
-                repeat: Infinity,
-                repeatType: "loop",
-                ease: "easeInOut",
-              }}
-              src={buyNowButton}
-              className="xl:mt-[10%] md:mt-[14%] mt-[8%] z-30 w-full ml-[3.5vw] h-[5vw] object-contain "
-            />
-          </div>
         </section>
       </div>
     </div>
