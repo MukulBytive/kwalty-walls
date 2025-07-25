@@ -4,6 +4,7 @@ import axios from "axios";
 
 import topten from "./assets/topten.png";
 import flyingChocoBall from "./assets/flyingChocoball.png";
+import flyingChocoBallVertical from "./assets/flyingChocoballVertical.png";
 import dayBg from "./assets/dayBg.png";
 // import buyNowButton from "./assets/buyNowButton.png";
 import tempDay from "./assets/tempDay.png";
@@ -96,23 +97,26 @@ function App() {
     <div className="flex min-w-[320px] justify-center flex-col  h-screen w-full relative">
       <div className="aspect-video bg-neutral-100  h-auto max-h-screen overflow-hidden w-full relative flex">
         {/* LEFT SECTION */}
+        {/* FLYING CHOCOBALL BACKGROUND */}
+        <img
+          src={flyingChocoBall}
+          className="absolute z-30 self-center  w-full px-5"
+        />
         <section
           className={`h-full w-1/2 flex flex-col relative bg-[url(./assets/bgLeft.png)] `}
         >
-          {/* FLYING CHOCOBALL BACKGROUND */}
           <img
-            src={flyingChocoBall}
-            className="absolute z-30 right-0 h-full object-contain py-[5vw] md:mr-[1vw] xl:py-[4vw] border-white px-5"
+            src={flyingChocoBallVertical}
+            className="absolute w-1/2 top-0 h-full py-[5%] z-10 object-contain right-0  border-white px-5"
           />
           <img src={icecreamBg} className="w-full h-full absolute" />
-          {/* right-[9vw] xs:right-[11vw] sm:right-[7.5vw] lg: */}
           <img
             src={topten}
-            className="h-[10vw] z-20 absolute right-[9vw] md:right-[11vw] top-[6%] lg:top-[1%] xl:top-[1%] "
+            className="xl:h-[8vw] h-[10vw] z-20 absolute right-[16%] xl:right-[25%] top-[7%] xl:top-[4%] "
           />
           <img
             src={chocolateBg}
-            className="self-center absolute top-[21%] xl:top-[10vw]"
+            className="self-center absolute top-[21%] xl:top-[8%]"
           />
           <img
             src={icecream}
@@ -120,14 +124,14 @@ function App() {
           />
           <img
             src={sixLayersOfExtra}
-            className=" xl:bottom-[-12%] bottom-0 xl:right-[-2%] right-[-1%] h-[19vw] md:h-[21vw] xl:h-[18vw] absolute w-full object-contain z-40"
+            className=" xl:bottom-[-5%] bottom-0 xl:right-[-2%] right-[-1%] h-[19vw] md:h-[21vw] xl:h-[18vw] absolute w-full object-contain z-40"
           />
           {/* xs:right-[-100px] sm:right-[-150px] md:right-[-180px]
           lg:right-[-220px] */}
           {/* h-[7rem] xs:h-[11rem] sm:h-[13rem] md:h-[13rem] */}
           <img
             src={pack}
-            className="right-[-17vw] xl:right-[-16.5vw] h-[30vw] xl:h-[25vw] bottom-[0%] md:bottom-[5%] xl:bottom-[-2vw]  absolute  w-full object-contain z-40"
+            className="right-[-17vw] xl:right-[-16.5vw] h-[30vw] xl:h-[25vw] bottom-[0%] md:bottom-[5%] xl:bottom-[1%]  absolute  w-full object-contain z-40"
           />
         </section>
 
