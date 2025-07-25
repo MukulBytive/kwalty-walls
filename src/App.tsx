@@ -13,7 +13,7 @@ import logo from "./assets/logo.png";
 import icecreamBg from "./assets/iceCreameBg.png";
 import chocolateBg from "./assets/chocolateBg.png";
 import icecream from "./assets/icecream.png";
-import sixLayersOfExtra from "./assets/6layersOfExtra.png";
+import sixLayersOfExtra from "./assets/sixLayersOfExtra.png";
 import pack from "./assets/pack.png";
 import textDay from "./assets/textDay.png";
 import textNight from "./assets/textNight.png";
