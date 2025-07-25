@@ -110,7 +110,7 @@ function App() {
           />
           <img
             src={topten}
-            className="h-[10vw] z-20 absolute right-[9vw] xs:right-[11vw] sm:right-[12vw] lg:right-[11vw] top-[7vw] xs:top-[5vw] md:top-[3vw] "
+            className="h-[10vw] z-20 absolute right-[9vw] xs:right-[11vw] sm:right-[7.5vw] lg:right-[11vw] top-[7vw] xs:top-[5vw] md:top-[3vw] "
           />
           <img
             src={chocolateBg}
