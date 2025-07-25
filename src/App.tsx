@@ -94,23 +94,21 @@ function App() {
   }
   return (
     <div className="flex min-w-[320px] justify-center flex-col  h-screen w-full relative">
-      <div className="aspect-video bg-neutral-100  h-auto max-h-screen w-full relative flex rounded-xl">
-        {/* FLYING CHOCOBALL BACKGROUND */}
-        <img
-          src={flyingChocoBall}
-          className="absolute z-30 self-center  w-full px-5"
-        />
+      <div className="aspect-video bg-neutral-100  h-auto max-h-screen overflow-hidden w-full relative flex">
         {/* LEFT SECTION */}
         <section
           className={`h-full w-1/2 flex flex-col relative bg-[url(./assets/bgLeft.png)] `}
         >
+          {/* FLYING CHOCOBALL BACKGROUND */}
           <img
-            src={icecreamBg}
-            className="w-full h-full absolute"
+            src={flyingChocoBall}
+            className="absolute z-30 right-0 h-full object-contain py-[5vw] md:mr-[1vw] xl:py-[4vw] border-white px-5"
           />
+          <img src={icecreamBg} className="w-full h-full absolute" />
+          {/* right-[9vw] xs:right-[11vw] sm:right-[7.5vw] lg: */}
           <img
             src={topten}
-            className="h-[10vw] z-20 absolute right-[9vw] xs:right-[11vw] sm:right-[7.5vw] lg:right-[11vw] top-[7vw] xs:top-[5vw] md:top-[3vw] "
+            className="h-[10vw] z-20 absolute right-[11vw] top-[3vw] lg:top-[1vw] xl:top-[0.5vw] "
           />
           <img
             src={chocolateBg}
@@ -118,7 +116,7 @@ function App() {
           />
           <img
             src={icecream}
-            className="bottom-0 mix-blend-normal absolute w-full object-cover h-[95%] xs:h-full left-[9vw] xs:left-[10vw] xl:left-[6vw] z-30"
+            className="bottom-0  mix-blend-normal absolute w-full object-cover h-full left-[10vw] xl:left-[6vw] z-30"
           />
           <img
             src={sixLayersOfExtra}
@@ -154,10 +152,7 @@ function App() {
             </div>
 
             {/* LOGO */}
-            <img
-              src={logo}
-              className="h-[6vw] absolute -top-[2vw] z-20 right-0"
-            />
+            <img src={logo} className="h-[6vw] absolute z-20 right-0" />
 
             <img
               src={isNight ? textNight : textDay}
