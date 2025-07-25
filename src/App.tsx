@@ -137,30 +137,33 @@ function App() {
             src={isNight ? nightBg : dayBg}
             className="absolute top-0 object-cover z-10 h-full w-full "
           />
-          <div className="flex flex-col  absolute top-[4vw] z-20 gap-8 w-[70%]">
-            <div className=" flex z-20 left-0 top-[1vw]">
-              <div className="relative gap-4 bg-white rounded-r-full pl-2 pr-4 sm:pr-8  items-center flex">
+          <div className="flex flex-col  absolute top-[7vw] z-20 w-[70%]">
+            <div className=" flex z-20 left-0 ">
+              <div className="relative  bg-white pl-2 pr-[3.5vw]  items-center flex">
                 <p className="font-shakila text-[4vw] text-[#9165c9] font-medium">
                   {currTemperature}&deg;C
                 </p>
                 <img
-                  className="h-7 xs:h-8 md:h-10 lg:h-16 right-[-14px] xs:right-[-18px] md:right-[-20px] lg:right-[-40px] absolute"
+                  className="h-full scale-110 right-[-3.5vw] absolute"
                   src={isNight ? tempNight : tempDay}
                 />
               </div>
             </div>
 
             {/* LOGO */}
-            <img src={logo} className="h-[8vw] absolute -top-2 z-20 right-0" />
+            <img
+              src={logo}
+              className="h-[6vw] absolute -top-[2vw] z-20 right-0"
+            />
 
             <img
               src={isNight ? textNight : textDay}
-              className=" lg:mt-8 ml-6 z-30 w-full object-contain "
+              className="mt-[6vw] ml-[3vw] z-30 w-full object-contain "
             />
 
             <img
               src={buyNowButton}
-              className=" z-30 w-full ml-6 h-5 sm:h-8 lg:h-10 object-contain "
+              className="mt-[6vw] z-30 w-full ml-[3.5vw] h-[7vw] object-contain "
             />
           </div>
         </section>
