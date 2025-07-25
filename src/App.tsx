@@ -37,24 +37,24 @@ function App() {
       setLoading(true);
       try {
         // Make the API request using Axios
-        // const location = await getCurrentLocation();
-        // const { data } = await axios.get(
-        //   "https://api.openweathermap.org/data/2.5/weather",
-        //   {
-        //     params: {
-        //       lat: location?.lat || DEFAULT_LOCATION.lat,
-        //       lon: location?.long || DEFAULT_LOCATION.long,
-        //       appid: "947ab204f923e1895bf76a4f07e070b6",
-        //       units: "metric",
-        //     },
-        //   }
-        // );
-        // setCurrTemperature(data?.main?.temp?.toFixed(0));
-        // const sunriseTime = data.sys.sunrise * 1000; // Convert UNIX timestamp to milliseconds
-        // const sunsetTime = data.sys.sunset * 1000; // Convert UNIX timestamp to milliseconds
-        // const currentTime = new Date().getTime();
-        // const isDaytime = currentTime > sunriseTime && currentTime < sunsetTime;
-        // if(!isDaytime) setIsNight(true)
+        const location = await getCurrentLocation();
+        const { data } = await axios.get(
+          "https://api.openweathermap.org/data/2.5/weather",
+          {
+            params: {
+              lat: location?.lat || DEFAULT_LOCATION.lat,
+              lon: location?.long || DEFAULT_LOCATION.long,
+              appid: "947ab204f923e1895bf76a4f07e070b6",
+              units: "metric",
+            },
+          }
+        );
+        setCurrTemperature(data?.main?.temp?.toFixed(0));
+        const sunriseTime = data.sys.sunrise * 1000; // Convert UNIX timestamp to milliseconds
+        const sunsetTime = data.sys.sunset * 1000; // Convert UNIX timestamp to milliseconds
+        const currentTime = new Date().getTime();
+        const isDaytime = currentTime > sunriseTime && currentTime < sunsetTime;
+        if(!isDaytime) setIsNight(true)
       } catch (error) {
         console.error("Error fetching temprature data:", error);
         return null;
