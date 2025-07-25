@@ -1,4 +1,4 @@
-import { useEffect,  useState } from "react";
+import { useEffect, useState } from "react";
 
 import axios from "axios";
 
@@ -11,13 +11,13 @@ import tempDay from "./assets/tempDay.png";
 import nightBg from "./assets/nightBg.png";
 import tempNight from "./assets/tempNight.png";
 import logo from "./assets/logo.png";
-import icecreamBg from "./assets/iceCreameBg.png";
+// import icecreamBg from "./assets/iceCreameBg.png";
 import chocolateBg from "./assets/chocolateBg.png";
 import icecream from "./assets/icecream2.png";
 import sixLayersOfExtra from "./assets/sixLayersOfExtra.png";
 import pack from "./assets/pack.png";
-import textDay from "./assets/textDay.png";
-import textNight from "./assets/textNight.png";
+// import textDay from "./assets/textDay.png";
+// import textNight from "./assets/textNight.png";
 import { motion } from "motion/react";
 // import icecream from "./assets/main/iceCream.png";
 // import tempNight from "./assets/main/tempNight.png";
@@ -31,13 +31,13 @@ function App() {
   const [currTemperature, setCurrTemperature] = useState(30);
   const [loading, setLoading] = useState(false);
   // const [isNight, setIsNight] = useState(false);
-const isNight = () => {
-  const now = new Date();
-  const hour = now.getHours(); // 0–23
-  // console.log(hour)
-  // Night = before 5 AM or 5 PM onwards
-  return hour < 5 || hour >= 17;
-};
+  const isNight = () => {
+    const now = new Date();
+    const hour = now.getHours(); // 0–23
+    // console.log(hour)
+    // Night = before 5 AM or 5 PM onwards
+    return hour < 5 || hour >= 17;
+  };
   console.log(loading);
   useEffect(() => {
     async function getTemperature() {
@@ -120,7 +120,7 @@ const isNight = () => {
         />
         {/* </motion.div> */}
         <section
-          className={`h-full w-1/2 flex flex-col relative bg-[url(./assets/bgLeft.png)] `}
+          className={`h-full w-1/2 flex flex-col relative  bg-[url(./assets/bgLeft2.png)] bg-cover`}
         >
           <motion.img
             // initial={{ opacity: 0 }}
@@ -134,7 +134,10 @@ const isNight = () => {
             src={flyingChocoBallVertical}
             className="absolute w-1/2 top-0 h-full py-[5%] z-20 object-contain right-0  border-white px-5"
           />
-          <img src={icecreamBg} className="w-full h-full  absolute" />
+          {/* <img
+            src={icecreamBg}
+            className="w-full h-full object-contain absolute"
+          /> */}
           <img
             src={topten}
             className="xl:h-[8vw] h-[10vw] z-20 absolute right-[16%] xl:right-[25%] top-[7%] xl:top-[4%] "
@@ -188,48 +191,65 @@ const isNight = () => {
           <div className="flex flex-col mt-[10%] h-[90%] border-white absolute z-20 w-[70%]">
             {/* header */}
 
-              <div className=" flex z-20 left-0 justify-between">
-                <div className="relative  bg-white pl-2 pr-[3.5vw]  items-center flex">
-                  <p className="font-shakila text-[4vw] text-[#9165c9] font-medium">
-                    {currTemperature}&deg;C
-                  </p>
-                  <img
-                    className="h-full scale-110 right-[-3.5vw] absolute"
-                    src={isNight() ? tempNight : tempDay}
-                  />
-                </div>
-                {/* LOGO */}
-                <img src={logo} className="h-[6vw] z-20 right-0" />
-              </div>
-
-              <div className="h-full flex flex-col justify-center md:gap-14">
-                {/* TEXT */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, ease: "easeIn" }}
-                >
-                  <img
-                    src={isNight() ? textNight : textDay}
-                    className=" ml-[4vw]  z-30 w-full xl:h-full md:h-[120%] h-[80%] object-contain "
-                  />
-                </motion.div>
-                {/* Buy Now */}
-                <motion.img
-                  animate={{
-                    scale: [1, 1.1, 1], // Zoom in to 1.1x, then back to 1x
-                  }}
-                  transition={{
-                    duration: 0.9,
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    ease: "easeInOut",
-                  }}
-                  src={buyNowButton}
-                  className=" z-30 w-full ml-[3.5vw] h-[5vw] object-contain "
+            <div className=" flex z-20 left-0 justify-between">
+              <div className="relative  bg-white pl-2 pr-[3.5vw]  items-center flex">
+                <p className="font-shakila text-[4vw] text-[#9165c9] font-medium">
+                  {currTemperature}&deg;C
+                </p>
+                <img
+                  className="h-full scale-110 right-[-3.5vw] absolute"
+                  src={isNight() ? tempNight : tempDay}
                 />
               </div>
+              {/* LOGO */}
+              <img src={logo} className="h-[6vw] z-20 right-0" />
             </div>
+
+            <div className="h-full flex flex-col justify-center xs:gap-[4vw] gap-[1.5vw]">
+              {/* TEXT */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeIn" }}
+              >
+                <div className="ml-[5vw]  ">
+                  <h6 className="font-shakila font-medium text-white text-[3vw] text-nowrap text-center">
+                    {isNight()
+                      ? " Let the Night Melt Away with"
+                      : "Take a Midday Break widh"}
+                  </h6>
+                  {isNight() ? (
+                    <h6 className="font-shakila font-[2000] text-stroke-red-500 text-white text-nowrap  text-[4.5vw] text-center">
+                      6 LAYERS OF
+                      <br /> CHOCOLATE BLISS!
+                    </h6>
+                  ) : (
+                    <h6 className="font-shakila font-[2000]  text-white text-stroke-red-500 text-nowrap text-[4.5vw] text-center">
+                      "6 LAYERS OF PURE <br /> DELIGHT"
+                    </h6>
+                  )}
+                </div>
+                {/* <img
+                    src={isNight() ? textNight : textDay}
+                    className=" ml-[4vw]  z-30 w-full xl:h-full md:h-[150%] h-[80%] object-contain "
+                  /> */}
+              </motion.div>
+              {/* Buy Now */}
+              <motion.img
+                animate={{
+                  scale: [1, 1.1, 1], // Zoom in to 1.1x, then back to 1x
+                }}
+                transition={{
+                  duration: 0.9,
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  ease: "easeInOut",
+                }}
+                src={buyNowButton}
+                className=" z-30 w-full ml-[3.5vw] h-[5vw] object-contain "
+              />
+            </div>
+          </div>
         </section>
       </div>
     </div>
