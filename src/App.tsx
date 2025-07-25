@@ -31,7 +31,7 @@ function App() {
   const [currTemperature, setCurrTemperature] = useState(30);
   const [loading, setLoading] = useState(false);
   const [isNight, setIsNight] = useState(false);
-
+console.log(loading)
   useEffect(() => {
     async function getTemperature() {
       setLoading(true);
@@ -42,6 +42,7 @@ function App() {
           "https://api.openweathermap.org/data/2.5/weather",
           {
             params: {
+              //@ts-ignore
               lat: location?.lat || DEFAULT_LOCATION.lat,
               lon: location?.long || DEFAULT_LOCATION.long,
               appid: "947ab204f923e1895bf76a4f07e070b6",
