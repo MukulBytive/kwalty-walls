@@ -27,6 +27,7 @@ const DEFAULT_LOCATION = {
 };
 
 function App() {
+  
   const [currTemperature, setCurrTemperature] = useState(30);
   const [loading, setLoading] = useState(false);
   const [isNight, setIsNight] = useState(false);
