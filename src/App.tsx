@@ -152,7 +152,7 @@ function App() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5, ease: "easeIn" }}
             src={chocolateBg}
-            className="self-center z-10 absolute top-[21%] xl:top-[8%]"
+            className="self-center z-10 absolute top-[21%] xl:top-[13vmax]"
           />
           <motion.img
             initial={{ y: 500 }}
