@@ -21,6 +21,8 @@ import pack from "./assets/pack.png";
 import { motion } from "motion/react";
 // import icecream from "./assets/main/iceCream.png";
 // import tempNight from "./assets/main/tempNight.png";
+import bgLeft from "./assets/bgLeft2.png";
+// import { isMobile } from "react-device-detect";
 
 const DEFAULT_LOCATION = {
   lat: 28.4,
@@ -72,6 +74,7 @@ function App() {
     getTemperature();
   }, []);
 
+  // console.log({isMobile})
   function getCurrentLocation() {
     return new Promise((resolve) => {
       if (navigator.geolocation)
@@ -120,8 +123,10 @@ function App() {
         />
         {/* </motion.div> */}
         <section
-          className={`h-full w-1/2 flex flex-col relative  bg-[url(./assets/bgLeft2.png)] bg-cover`}
+          className={`h-full w-1/2 flex flex-col relative`}
+          // className={`h-full w-1/2 flex flex-col relative  bg-[url(./assets/bgLeft2.png)] bg-cover`}
         >
+          <img src={bgLeft} className="absolute object-cover h-full w-full" />
           <motion.img
             // initial={{ opacity: 0 }}
             animate={{ opacity: 1, scale: [1, 1.05, 1] }}
@@ -142,7 +147,6 @@ function App() {
             src={topten}
             className="xl:h-[8vw] h-[10vw] z-20 absolute right-[16%] xl:right-[25%] top-[7%] xl:top-[4%] "
           />
-
           <motion.img
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -150,7 +154,6 @@ function App() {
             src={chocolateBg}
             className="self-center z-10 absolute top-[21%] xl:top-[8%]"
           />
-
           <motion.img
             initial={{ y: 500 }}
             animate={{ y: 0 }}
@@ -161,9 +164,8 @@ function App() {
               duration: 1,
             }}
             src={icecream}
-            className="bottom-[-3vw] object-contain absolute w-full  h-[85%] z-30"
+            className={`landscape:xl:bottom-[-6vmax] xl:bottom-[-7vmax] bottom-[-3vmax] lg:bottom-[-5vmax]  md:left-[0.4vmin] left-[1vmin] object-contain absolute w-full  h-[85%] z-30`}
           />
-
           <motion.img
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -171,7 +173,6 @@ function App() {
             src={sixLayersOfExtra}
             className=" xl:bottom-[-5%] bottom-0 xl:right-[-2%] right-[-1%] h-[19vw] md:h-[21vw] xl:h-[18vw] absolute w-full object-contain z-40"
           />
-
           <motion.img
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
