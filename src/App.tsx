@@ -213,19 +213,19 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeIn" }}
               >
-                <div className="ml-[5vw]">
-                  <h6 className="font-shakila [text-shadow:_0px_5px_7px_#000000] shadow-black font-medium text-white text-[3vw] text-nowrap text-center">
+                <div className="ml-[4vw]">
+                  <h6 className="font-shakila [text-shadow:_0px_5px_7px_#000000] shadow-black font-medium text-white text-[3.1vw] text-nowrap text-center">
                     {isNight()
                       ? " Let the Night Melt Away with"
                       : "Take a Midday Break with"}
                   </h6>
                   {isNight() ? (
-                    <h6 className="[text-shadow:_0px_6px_6px_#101112] shadow-black font-shakila !font-extrabold text-stroke-red-500 text-white text-nowrap text-[5.1vw] xl:text-[4.5vw]  text-center">
+                    <h6 className="[text-shadow:_0px_6px_6px_#101112] shadow-black font-shakila !font-extrabold text-stroke-red-500 text-white text-nowrap text-[5.2vw] xl:text-[4.5vw]  text-center">
                       6 LAYERS OF
                       <br /> CHOCOLATE BLISS!
                     </h6>
                   ) : (
-                    <h6 className="[text-shadow:_0px_6px_6px_#101112] shadow-black font-shakila !font-extrabold  text-white text-stroke-red-500 text-nowrap text-[5.1vw] xl:text-[4.5vw] text-center">
+                    <h6 className="[text-shadow:_0px_6px_6px_#101112] shadow-black font-shakila !font-extrabold  text-white text-stroke-red-500 text-nowrap text-[5.2vw] xl:text-[4.5vw] text-center">
                       6 LAYERS OF PURE <br /> DELIGHT!
                     </h6>
                   )}
