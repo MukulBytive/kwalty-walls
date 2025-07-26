@@ -213,19 +213,19 @@ function App() {
                 transition={{ duration: 1, ease: "easeIn" }}
               >
                 <div className="ml-[5vw]  ">
-                  <h6 className="font-shakila font-medium text-white text-[3vw] text-nowrap text-center">
+                  <h6 className="font-shakila [text-shadow:_0px_5px_7px_#000000] shadow-black font-medium text-white text-[3vw] text-nowrap text-center">
                     {isNight()
                       ? " Let the Night Melt Away with"
-                      : "Take a Midday Break widh"}
+                      : "Take a Midday Break with"}
                   </h6>
                   {isNight() ? (
-                    <h6 className="font-shakila font-[2000] text-stroke-red-500 text-white text-nowrap  text-[4.5vw] text-center">
+                    <h6 className="[text-shadow:_0px_8px_8px_#363636] shadow-black font-shakila font-[3000] text-stroke-red-500 text-white text-nowrap  text-[4.5vw] text-center">
                       6 LAYERS OF
                       <br /> CHOCOLATE BLISS!
                     </h6>
                   ) : (
-                    <h6 className="font-shakila font-[2000]  text-white text-stroke-red-500 text-nowrap text-[4.5vw] text-center">
-                      "6 LAYERS OF PURE <br /> DELIGHT"
+                    <h6 className="[text-shadow:_0px_8px_8px_#363636] shadow-black font-shakila font-[3000]  text-white text-stroke-red-500 text-nowrap text-[4.5vw] text-center">
+                      6 LAYERS OF PURE <br /> DELIGHT
                     </h6>
                   )}
                 </div>
