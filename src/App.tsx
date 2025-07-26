@@ -104,13 +104,13 @@ function App() {
   return (
     <div className="flex min-w-[320px] justify-center flex-col  h-screen w-full relative">
       <div className="aspect-video bg-neutral-100  h-auto max-h-screen overflow-hidden w-full relative flex">
-        {/* LEFT SECTION */}
         {/* FLYING CHOCOBALL BACKGROUND */}
         {/* <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, ease: "easeIn" }}
         > */}
+        {/* LEFT SECTION */}
         <motion.img
           // initial={{ opacity: 0 }}
           animate={{ opacity: 1, scale: [1, 1.05, 1] }}
@@ -189,7 +189,7 @@ function App() {
             src={isNight() ? nightBg : dayBg}
             className="absolute top-0 object-cover z-10 h-full w-full "
           />
-          <div className="flex flex-col mt-[10%] h-[90%] border-white absolute z-20 w-[70%]">
+          <div className="flex flex-col mt-[10%] h-[90%] border-white absolute z-20 w-[75%]">
             {/* header */}
 
             <div className=" flex z-20 left-0 justify-between">
@@ -247,7 +247,7 @@ function App() {
                   ease: "easeInOut",
                 }}
                 src={buyNowButton}
-                className=" z-30 w-full ml-[3.5vw] h-[5vw] object-contain "
+                className="ml-[2vw] z-30 w-full mx-auto h-[5vw] object-contain "
               />
             </div>
           </div>
