@@ -226,7 +226,7 @@ function App() {
                     </h6>
                   ) : (
                     <h6 className="[text-shadow:_0px_6px_6px_#101112] shadow-black font-shakila !font-extrabold  text-white text-stroke-red-500 text-nowrap text-[5.1vw] xl:text-[4.5vw] text-center">
-                      6 LAYERS OF PURE <br /> DELIGHT
+                      6 LAYERS OF PURE <br /> DELIGHT!
                     </h6>
                   )}
                 </div>
