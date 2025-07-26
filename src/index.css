@@ -1,6 +1,8 @@
 @font-face {
   font-family: Shakila;
   src: url('./assets/fonts/Shakila.ttf');
+  font-weight: 400 800;
+    font-stretch: 0% 200%;
 }
 
 @import "tailwindcss";
@@ -15,15 +17,9 @@ body{
 }
 
 @layer utilities {
-  .text-stroke-1 {
-    -webkit-text-stroke-width: 1px;
-  }
-  .text-stroke-2 {
-    -webkit-text-stroke-width: 2px;
-  }
   .text-stroke-red-500 {
-    -webkit-text-stroke-width: 0.2vw;
-    -webkit-text-stroke-color: #ef4444; /* Matches Tailwind's red-500 */
+    -webkit-text-stroke-width: 0.4vw;
+    -webkit-text-stroke-color: #ff3535; 
+    paint-order: stroke fill;
   }
-  /* Add more widths as needed */
 }
