@@ -220,12 +220,12 @@ function App() {
                       : "Take a Midday Break with"}
                   </h6>
                   {isNight() ? (
-                    <h6 className="[text-shadow:_0px_6px_6px_#101112] shadow-black font-shakila !font-extrabold text-stroke-red-500 text-white text-nowrap text-[5.2vw] xl:text-[4.5vw]  text-center">
+                    <h6 className="[text-shadow:_0px_0.7vw_0.5vw_#3b3b3b]  font-shakila !font-extrabold text-stroke-red-500 text-white text-nowrap text-[5.2vw] xl:text-[4.5vw]  text-center">
                       6 LAYERS OF
                       <br /> CHOCOLATE BLISS!
                     </h6>
                   ) : (
-                    <h6 className="[text-shadow:_0px_6px_6px_#101112] shadow-black font-shakila !font-extrabold  text-white text-stroke-red-500 text-nowrap text-[5.2vw] xl:text-[4.5vw] text-center">
+                    <h6 className="[text-shadow:_0px_0.7vw_0.5vw_#3b3b3b]  font-shakila !font-extrabold  text-white text-stroke-red-500 text-nowrap text-[5.2vw] xl:text-[4.5vw] text-center">
                       6 LAYERS OF PURE <br /> DELIGHT!
                     </h6>
                   )}
