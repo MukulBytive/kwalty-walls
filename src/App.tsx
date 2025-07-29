@@ -111,15 +111,15 @@ function App() {
             ease: "easeInOut",
           }}
           src={flyingChocoBall}
-          className="absolute z-20 ml-[3%] my-[5%] pr-[6.5%]"
+          className="absolute z-20 pl-[3%]   pr-[5vw]"
         />
 
         {/* LEFT SECTION */}
-        <section className="w-[54.5%] bg-cover bg-no-repeat bg-[url(./assets/bgLeft.png)]  border-white relative h-full  ">
+        <section className="w-[54.5%] bg-cover bg-no-repeat bg-[url(./assets/bgLeft.png)] bg-[0%_65%]  border-white relative h-full  ">
           {/* LOGO */}
           <img
             src={logo}
-            className="h-[14%] object-contain z-20 left-[20%] top-0 absolute"
+            className="h-[14%] object-contain z-20 left-[25%] top-0 absolute"
           />
           <div className="flex flex-col landscape:gap-[4vmax] gap-[3vw] justify-between  h-full z-20 relative w-[75%] pt-7 pb-[30%] ml-auto">
             {/* TOPTEN */}
@@ -187,7 +187,7 @@ function App() {
 
         {/* RIGHT SECTION */}
         <section
-          className={`w-[45.5%] pt-[2vw] bg-cover flex flex-col h-full relative bg-no-repeat ${
+          className={`w-[45.5%] pt-[2vw] bg-cover flex flex-col h-full relative bg-no-repeat bg-[0%_65%] ${
             isNight()
               ? "bg-[url(./assets/night/nightBg2.png)]"
               : "bg-[url(./assets/day/dayBg2.png)]"
@@ -212,7 +212,7 @@ function App() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
               src={pack}
-              className="absolute bottom-[22%] h-[60%] landscape:h-[calc(30%+15vmax)]  w-auto object-contain z-40"
+              className="absolute bottom-[22%] h-[60%] landscape:h-[calc(50%+5vmax)] left-[1%]  w-auto object-contain z-40"
             />
 
             <motion.img
@@ -232,7 +232,7 @@ function App() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
               src={sixLayersOfExtra}
-              className="  bottom-[1%] z-10 h-[30%] left-[1%] absolute w-auto object-contain "
+              className="  bottom-[2%] z-10 h-[calc(25%+2vw)] left-[2%] absolute w-auto object-contain "
             />
           </div>
           {/* 
