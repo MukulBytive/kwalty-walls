@@ -207,13 +207,13 @@ function App() {
             </div>
           </div>
 
-          <div className="flex relative h-full">
+          <div className="flex relative h-full gap-5">
             <motion.img
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
               src={pack}
-              className="absolute bottom-[10vw] left-[0vw] h-[30vw] xl:h-[25vw]  w-auto object-contain z-40"
+              className="absolute bottom-[22%] h-[calc(30%+15vmax)]  w-auto object-contain z-40"
             />
 
             <motion.img
@@ -226,14 +226,14 @@ function App() {
                 duration: 1,
               }}
               src={iceCream}
-              className={`left-[11.5vw] object-contain absolute bottom-[-5vw] h-[50vw] z-30`}
+              className={`left-[10vw] object-cover object-top absolute bottom-[-6vw] h-[120%] z-30`}
             />
             <motion.img
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
               src={sixLayersOfExtra}
-              className="  bottom-[1vw] z-10 h-[13vw] left-[1vw] absolute w-auto object-contain "
+              className="  bottom-[1%] z-10 h-[30%] left-[1%] absolute w-auto object-contain "
             />
           </div>
           {/* 
