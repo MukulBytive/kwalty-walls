@@ -4,24 +4,24 @@ import axios from "axios";
 
 import topten from "./assets/topten.png";
 import flyingChocoBall from "./assets/chocolateBall.png";
-import flyingChocoBallVertical from "./assets/flyingChocoballVertical.png";
-import dayBg from "./assets/dayBg.png";
+import { motion } from "motion/react";
 import buyNowButton from "./assets/buyNowButton.png";
 import tempDay from "./assets/tempDay.png";
-import nightBg from "./assets/nightBg.png";
 import tempNight from "./assets/tempNight.png";
 import logo from "./assets/logo.png";
 // import icecreamBg from "./assets/iceCreameBg.png";
-import chocolateBg from "./assets/chocolateBg.png";
-import icecream from "./assets/icecream2.png";
-import sixLayersOfExtra from "./assets/sixLayersOfExtra.png";
+import iceCream from "./assets/iceCream.png";
+import sixLayersOfExtra from "./assets/sixLayers.png";
 import pack from "./assets/pack.png";
+// import nightBg from "./assets/nightBg.png";
+// import chocolateBg from "./assets/chocolateBg.png";
+// import flyingChocoBallVertical from "./assets/flyingChocoballVertical.png";
+// import dayBg from "./assets/dayBg.png";
 // import textDay from "./assets/textDay.png";
 // import textNight from "./assets/textNight.png";
-import { motion } from "motion/react";
 // import icecream from "./assets/main/iceCream.png";
 // import tempNight from "./assets/main/tempNight.png";
-import bgLeft from "./assets/bgLeft.png";
+// import bgLeft from "./assets/bgLeft.png";
 import chocolateSplash from "./assets/chocolateSplash.png";
 // import { isMobile } from "react-device-detect";
 
@@ -44,21 +44,21 @@ function App() {
     async function getTemperature() {
       // setLoading(true);
       try {
-        // const location = await getCurrentLocation();
-        // const { data } = await axios.get(
-        //   "https://api.openweathermap.org/data/2.5/weather",
-        //   {
-        //     params: {
-        //       //@ts-ignore
-        //       lat: location?.lat || DEFAULT_LOCATION.lat,
-        //       //@ts-ignore
-        //       lon: location?.long || DEFAULT_LOCATION.long,
-        //       appid: "947ab204f923e1895bf76a4f07e070b6",
-        //       units: "metric",
-        //     },
-        //   }
-        // );
-        // setCurrTemperature(data?.main?.temp?.toFixed(0));
+        const location = await getCurrentLocation();
+        const { data } = await axios.get(
+          "https://api.openweathermap.org/data/2.5/weather",
+          {
+            params: {
+              //@ts-ignore
+              lat: location?.lat || DEFAULT_LOCATION.lat,
+              //@ts-ignore
+              lon: location?.long || DEFAULT_LOCATION.long,
+              appid: "947ab204f923e1895bf76a4f07e070b6",
+              units: "metric",
+            },
+          }
+        );
+        setCurrTemperature(data?.main?.temp?.toFixed(0));
         // const sunriseTime = data.sys.sunrise * 1000;
         // const sunsetTime = data.sys.sunset * 1000;
         // const isDaytime = currentTime > sunriseTime && currentTime < sunsetTime;
@@ -71,7 +71,7 @@ function App() {
     getTemperature();
   }, [hour]);
 
-  // console.log({isMobile})
+  console.log("rerender")
   function getCurrentLocation() {
     return new Promise((resolve) => {
       if (navigator.geolocation)
@@ -188,16 +188,75 @@ function App() {
 
         {/* RIGHT SECTION */}
         <section
-          className={`w-[45.5%] bg-cover bg-no-repeat ${
+          className={`w-[45.5%] pt-[2vw] bg-cover flex flex-col h-full relative bg-no-repeat ${
             isNight()
               ? "bg-[url(./assets/night/nightBg2.png)]"
               : "bg-[url(./assets/day/dayBg2.png)]"
           }`}
-        ></section>
+        >
+          {/* TEMPERATURE */}
+          <div className=" flex z-20 left-0 justify-between">
+            <div className="relative  bg-white pl-2 pr-[3.5vw]  items-center flex">
+              <p className="font-shakila text-[4vw] text-[#9165c9] font-medium">
+                {currTemperature}&deg;C
+              </p>
+              <img
+                className="h-full scale-110 right-[-3.5vw] absolute"
+                src={isNight() ? tempNight : tempDay}
+              />
+            </div>
+          </div>
+
+          <div className="flex relative h-full">
+            <motion.img
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
+              src={pack}
+              className="absolute bottom-[10vw] left-[0vw] h-[30vw] xl:h-[25vw]  w-auto object-contain z-40"
+            />
+
+            <motion.img
+              initial={{ y: 500 }}
+              animate={{ y: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 120,
+                damping: 12,
+                duration: 1,
+              }}
+              src={iceCream}
+              className={`left-[11.5vw] object-contain absolute bottom-[-5vw] h-[50vw] z-30`}
+            />
+            <motion.img
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
+              src={sixLayersOfExtra}
+              className="  bottom-[1vw] z-10 h-[13vw] left-[1vw] absolute w-auto object-contain "
+            />
+          </div>
+          {/* 
+      
+          <motion.img
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
+            src={pack}
+            className="right-[-17vw] xl:right-[-16.5vw] h-[30vw] xl:h-[25vw] bottom-[0%] md:bottom-[5%] xl:bottom-[1%]  absolute  w-full object-contain z-40"
+          /> */}
+        </section>
 
         {/* <img src={bgLeft} className="absolute object-cover h-full w-full" /> */}
-        {/* <section className={`h-full w-1/2 flex flex-col relative`}>
-          <motion.img
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+{
+  /* <motion.img
             animate={{ opacity: 1, scale: [1, 1.05, 1] }}
             transition={{
               duration: 1.5,
@@ -213,50 +272,7 @@ function App() {
             transition={{ duration: 1.5, ease: "easeIn" }}
             src={chocolateBg}
             className="self-center z-10 absolute top-[21%] xl:top-[13vmax]"
-          />
-          <motion.img
-            initial={{ y: 500 }}
-            animate={{ y: 0 }}
-            transition={{
-              type: "spring",
-              stiffness: 120,
-              damping: 12,
-              duration: 1,
-            }}
-            src={icecream}
-            className={`landscape:xl:bottom-[-6vmax] xl:bottom-[-7vmax] bottom-[-3vmax] lg:bottom-[-5vmax]  md:left-[0.4vmin] left-[1vmin] object-contain absolute w-full  h-[85%] z-30`}
-          />
-          <motion.img
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
-            src={sixLayersOfExtra}
-            className=" xl:bottom-[-5%] bottom-0 xl:right-[-2%] right-[-1%] h-[19vw] md:h-[21vw] xl:h-[18vw] absolute w-full object-contain z-40"
-          />
-          <motion.img
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
-            src={pack}
-            className="right-[-17vw] xl:right-[-16.5vw] h-[30vw] xl:h-[25vw] bottom-[0%] md:bottom-[5%] xl:bottom-[1%]  absolute  w-full object-contain z-40"
-          />
-        </section> */}
-      </div>
-    </div>
-  );
+          /> */
 }
 
-export default App;
-
 // TEMPERATURE
-// <div className=" flex z-20 left-0 justify-between">
-//   <div className="relative  bg-white pl-2 pr-[3.5vw]  items-center flex">
-//     <p className="font-shakila text-[4vw] text-[#9165c9] font-medium">
-//       {currTemperature}&deg;C
-//     </p>
-//     <img
-//       className="h-full scale-110 right-[-3.5vw] absolute"
-//       src={isNight() ? tempNight : tempDay}
-//     />
-//   </div>
-// </div>;
