@@ -121,7 +121,7 @@ function App() {
             src={logo}
             className="h-[14%] object-contain z-20 left-[20%] top-0 absolute"
           />
-          <div className="flex flex-col gap-[4vmax] justify-between  h-full z-20 relative w-[75%] pt-7 pb-[30%] ml-auto">
+          <div className="flex flex-col landscape:gap-[4vmax] gap-[3vw] justify-between  h-full z-20 relative w-[75%] pt-7 pb-[30%] ml-auto">
             {/* TOPTEN */}
             <img
               src={topten}
@@ -175,7 +175,7 @@ function App() {
                 ease: "easeInOut",
               }}
               src={buyNowButton}
-              className=" z-30 h-[5vmax] object-contain "
+              className=" z-30 landscape:h-[5vmax] h-[6.5vw] object-contain "
             />
           </div>
 
@@ -212,7 +212,7 @@ function App() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
               src={pack}
-              className="absolute bottom-[22%] h-[calc(30%+15vmax)]  w-auto object-contain z-40"
+              className="absolute bottom-[22%] h-[60%] landscape:h-[calc(30%+15vmax)]  w-auto object-contain z-40"
             />
 
             <motion.img
