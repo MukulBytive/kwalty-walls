@@ -111,7 +111,7 @@ function App() {
             ease: "easeInOut",
           }}
           src={flyingChocoBall}
-          className="absolute z-20  px-5"
+          className="absolute z-20 ml-[3%] my-[5%] pr-[6.5%]"
         />
 
         {/* LEFT SECTION */}
@@ -119,7 +119,7 @@ function App() {
           {/* LOGO */}
           <img
             src={logo}
-            className="h-[14%] object-contain z-20 left-[13vw] top-0 absolute"
+            className="h-[14%] object-contain z-20 left-[20%] top-0 absolute"
           />
           <div className="flex flex-col gap-[4vmax] justify-between  h-full z-20 relative w-[75%] pt-7 pb-[30%] ml-auto">
             {/* TOPTEN */}
@@ -165,15 +165,15 @@ function App() {
             </div>
 
             <motion.img
-              // animate={{
-              //   scale: [1, 1.1, 1], // Zoom in to 1.1x, then back to 1x
-              // }}
-              // transition={{
-              //   duration: 0.9,
-              //   repeat: Infinity,
-              //   repeatType: "loop",
-              //   ease: "easeInOut",
-              // }}
+              animate={{
+                scale: [1, 1.1, 1], // Zoom in to 1.1x, then back to 1x
+              }}
+              transition={{
+                duration: 0.9,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "easeInOut",
+              }}
               src={buyNowButton}
               className=" z-30 h-[5vmax] object-contain "
             />
