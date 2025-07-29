@@ -58,7 +58,7 @@ function App() {
             },
           }
         );
-        setCurrTemperature(data?.main?.temp?.toFixed(0));
+        setCurrTemperature(Math.trunc(data?.main?.temp));
         // const sunriseTime = data.sys.sunrise * 1000;
         // const sunsetTime = data.sys.sunset * 1000;
         // const isDaytime = currentTime > sunriseTime && currentTime < sunsetTime;
