@@ -71,7 +71,6 @@ function App() {
     getTemperature();
   }, [hour]);
 
-  console.log("rerender")
   function getCurrentLocation() {
     return new Promise((resolve) => {
       if (navigator.geolocation)
@@ -120,13 +119,13 @@ function App() {
           {/* LOGO */}
           <img
             src={logo}
-            className="h-[6vw] object-contain z-20 left-[13vw] top-0 absolute"
+            className="h-[14%] object-contain z-20 left-[13vw] top-0 absolute"
           />
-          <div className="flex flex-col gap-[4vmax] justify-between  h-full z-20 relative w-[75%] pt-7 pb-[6vw] ml-auto">
+          <div className="flex flex-col gap-[4vmax] justify-between  h-full z-20 relative w-[75%] pt-7 pb-[30%] ml-auto">
             {/* TOPTEN */}
             <img
               src={topten}
-              className="h-[22%] object-contain z-20 right-[16%] xl:right-[25%] top-[7%] xl:top-[4%] "
+              className="h-[30%] object-contain z-20 right-[16%] xl:right-[25%] top-[7%] xl:top-[4%] "
             />
             {/* TEXT SECTION */}
             <div className="h-[60%] flex flex-col justify-center">
