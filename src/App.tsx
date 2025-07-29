@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import topten from "./assets/topten.png";
-import flyingChocoBall from "./assets/flyingChocoball.png";
+import flyingChocoBall from "./assets/chocolateBall.png";
 import flyingChocoBallVertical from "./assets/flyingChocoballVertical.png";
 import dayBg from "./assets/dayBg.png";
 import buyNowButton from "./assets/buyNowButton.png";
@@ -21,7 +21,8 @@ import pack from "./assets/pack.png";
 import { motion } from "motion/react";
 // import icecream from "./assets/main/iceCream.png";
 // import tempNight from "./assets/main/tempNight.png";
-import bgLeft from "./assets/bgLeft2.png";
+import bgLeft from "./assets/bgLeft.png";
+import chocolateSplash from "./assets/chocolateSplash.png";
 // import { isMobile } from "react-device-detect";
 
 const DEFAULT_LOCATION = {
@@ -31,35 +32,33 @@ const DEFAULT_LOCATION = {
 
 function App() {
   const [currTemperature, setCurrTemperature] = useState(30);
-  const [loading, setLoading] = useState(false);
-  // const [isNight, setIsNight] = useState(false);
+  const hour = new Date().getHours();
   const isNight = () => {
     const now = new Date();
     const hour = now.getHours(); // 0–23
-    // console.log(hour)
     // Night = before 5 AM or 5 PM onwards
     return hour < 5 || hour >= 17;
   };
-  console.log(loading);
+
   useEffect(() => {
     async function getTemperature() {
-      setLoading(true);
+      // setLoading(true);
       try {
-        const location = await getCurrentLocation();
-        const { data } = await axios.get(
-          "https://api.openweathermap.org/data/2.5/weather",
-          {
-            params: {
-              //@ts-ignore
-              lat: location?.lat || DEFAULT_LOCATION.lat,
-              //@ts-ignore
-              lon: location?.long || DEFAULT_LOCATION.long,
-              appid: "947ab204f923e1895bf76a4f07e070b6",
-              units: "metric",
-            },
-          }
-        );
-        setCurrTemperature(data?.main?.temp?.toFixed(0));
+        // const location = await getCurrentLocation();
+        // const { data } = await axios.get(
+        //   "https://api.openweathermap.org/data/2.5/weather",
+        //   {
+        //     params: {
+        //       //@ts-ignore
+        //       lat: location?.lat || DEFAULT_LOCATION.lat,
+        //       //@ts-ignore
+        //       lon: location?.long || DEFAULT_LOCATION.long,
+        //       appid: "947ab204f923e1895bf76a4f07e070b6",
+        //       units: "metric",
+        //     },
+        //   }
+        // );
+        // setCurrTemperature(data?.main?.temp?.toFixed(0));
         // const sunriseTime = data.sys.sunrise * 1000;
         // const sunsetTime = data.sys.sunset * 1000;
         // const isDaytime = currentTime > sunriseTime && currentTime < sunsetTime;
@@ -67,12 +66,10 @@ function App() {
       } catch (error) {
         console.error("Error fetching temprature data:", error);
         return null;
-      } finally {
-        setLoading(false);
       }
     }
     getTemperature();
-  }, []);
+  }, [hour]);
 
   // console.log({isMobile})
   function getCurrentLocation() {
@@ -103,50 +100,113 @@ function App() {
   }
   return (
     <div className="flex min-w-[320px] justify-center flex-col  h-screen w-full relative">
-      <div className="aspect-video bg-neutral-100  h-auto max-h-screen overflow-hidden w-full relative flex">
+      <div
+        className={`overflow-hidden bg-no-repeat bg-cover aspect-video bg-neutral-100  h-auto max-h-screen w-full relative flex`}
+      >
         {/* FLYING CHOCOBALL BACKGROUND */}
-        {/* <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeIn" }}
-        > */}
-        {/* LEFT SECTION */}
         <motion.img
-          // initial={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
           animate={{ opacity: 1, scale: [1, 1.05, 1] }}
           transition={{
             duration: 1.5,
             ease: "easeInOut",
           }}
           src={flyingChocoBall}
-          className="absolute z-20 self-center  w-full px-5"
+          className="absolute z-20  px-5"
         />
-        {/* </motion.div> */}
+
+        {/* LEFT SECTION */}
+        <section className="w-[54.5%] bg-cover bg-no-repeat bg-[url(./assets/bgLeft.png)]  border-white relative h-full  ">
+          {/* LOGO */}
+          <img
+            src={logo}
+            className="h-[6vw] object-contain z-20 left-[13vw] top-0 absolute"
+          />
+          <div className="flex flex-col gap-[4vmax] justify-between  h-full z-20 relative w-[75%] pt-7 pb-[6vw] ml-auto">
+            {/* TOPTEN */}
+            <img
+              src={topten}
+              className="h-[22%] object-contain z-20 right-[16%] xl:right-[25%] top-[7%] xl:top-[4%] "
+            />
+            {/* TEXT SECTION */}
+            <div className="h-[60%] flex flex-col justify-center">
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: "easeIn" }}
+              >
+                <h6 className="font-shakila [text-shadow:_0px_5px_7px_#000000] shadow-black font-medium text-white text-[3.1vw] text-nowrap text-center">
+                  {isNight()
+                    ? " Let the Night Melt Away with"
+                    : "Take a Midday Break with"}
+                </h6>
+              </motion.div>
+              {isNight() ? (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, ease: "easeIn" }}
+                >
+                  <h6 className="[text-shadow:_0px_0.7vw_0.5vw_#3b3b3b]  font-shakila !font-extrabold text-stroke-red-500 text-white text-nowrap text-[5.2vw] xl:text-[4.5vw]  text-center">
+                    6 LAYERS OF
+                    <br /> CHOCOLATE BLISS!
+                  </h6>
+                </motion.div>
+              ) : (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, ease: "easeIn" }}
+                >
+                  <h6 className="[text-shadow:_0px_0.7vw_0.5vw_#3b3b3b]  font-shakila !font-extrabold  text-white text-stroke-red-500 text-nowrap text-[5.2vw] xl:text-[4.5vw] text-center">
+                    6 LAYERS OF PURE <br /> DELIGHT!
+                  </h6>
+                </motion.div>
+              )}
+            </div>
+
+            <motion.img
+              // animate={{
+              //   scale: [1, 1.1, 1], // Zoom in to 1.1x, then back to 1x
+              // }}
+              // transition={{
+              //   duration: 0.9,
+              //   repeat: Infinity,
+              //   repeatType: "loop",
+              //   ease: "easeInOut",
+              // }}
+              src={buyNowButton}
+              className=" z-30 h-[5vmax] object-contain "
+            />
+          </div>
+
+          <img
+            src={chocolateSplash}
+            className="absolute w-auto h-[20vw] object-cover bottom-[-3vw] right-0"
+          />
+        </section>
+
+        {/* RIGHT SECTION */}
         <section
-          className={`h-full w-1/2 flex flex-col relative`}
-          // className={`h-full w-1/2 flex flex-col relative  bg-[url(./assets/bgLeft2.png)] bg-cover`}
-        >
-          <img src={bgLeft} className="absolute object-cover h-full w-full" />
+          className={`w-[45.5%] bg-cover bg-no-repeat ${
+            isNight()
+              ? "bg-[url(./assets/night/nightBg2.png)]"
+              : "bg-[url(./assets/day/dayBg2.png)]"
+          }`}
+        ></section>
+
+        {/* <img src={bgLeft} className="absolute object-cover h-full w-full" /> */}
+        {/* <section className={`h-full w-1/2 flex flex-col relative`}>
           <motion.img
-            // initial={{ opacity: 0 }}
             animate={{ opacity: 1, scale: [1, 1.05, 1] }}
             transition={{
               duration: 1.5,
               ease: "easeInOut",
-              // repeat: Infinity,
-              // repeatType: "loop",
             }}
             src={flyingChocoBallVertical}
             className="absolute w-1/2 top-0 h-full py-[5%] z-20 object-contain right-0  border-white px-5"
           />
-          {/* <img
-            src={icecreamBg}
-            className="w-full h-full object-contain absolute"
-          /> */}
-          <img
-            src={topten}
-            className="xl:h-[8vw] h-[10vw] z-20 absolute right-[16%] xl:right-[25%] top-[7%] xl:top-[4%] "
-          />
+        
           <motion.img
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -180,81 +240,23 @@ function App() {
             src={pack}
             className="right-[-17vw] xl:right-[-16.5vw] h-[30vw] xl:h-[25vw] bottom-[0%] md:bottom-[5%] xl:bottom-[1%]  absolute  w-full object-contain z-40"
           />
-        </section>
-
-        {/* RIGHT SECTION */}
-        <section className="w-1/2 relative h-full z-50 ">
-          {/* DAY BG */}
-          <img
-            src={isNight() ? nightBg : dayBg}
-            className="absolute top-0 object-cover z-10 h-full w-full "
-          />
-          <div className="flex flex-col mt-[10%] h-[90%] border-white absolute z-20 w-[75%]">
-            {/* header */}
-
-            <div className=" flex z-20 left-0 justify-between">
-              <div className="relative  bg-white pl-2 pr-[3.5vw]  items-center flex">
-                <p className="font-shakila text-[4vw] text-[#9165c9] font-medium">
-                  {currTemperature}&deg;C
-                </p>
-                <img
-                  className="h-full scale-110 right-[-3.5vw] absolute"
-                  src={isNight() ? tempNight : tempDay}
-                />
-              </div>
-              {/* LOGO */}
-              <img src={logo} className="h-[6vw] z-20 right-0" />
-            </div>
-
-            <div className="h-full flex flex-col justify-center xs:gap-[4vw] gap-[1.5vw]">
-              {/* TEXT */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: "easeIn" }}
-              >
-                <div className="ml-[4vw]">
-                  <h6 className="font-shakila [text-shadow:_0px_5px_7px_#000000] shadow-black font-medium text-white text-[3.1vw] text-nowrap text-center">
-                    {isNight()
-                      ? " Let the Night Melt Away with"
-                      : "Take a Midday Break with"}
-                  </h6>
-                  {isNight() ? (
-                    <h6 className="[text-shadow:_0px_0.7vw_0.5vw_#3b3b3b]  font-shakila !font-extrabold text-stroke-red-500 text-white text-nowrap text-[5.2vw] xl:text-[4.5vw]  text-center">
-                      6 LAYERS OF
-                      <br /> CHOCOLATE BLISS!
-                    </h6>
-                  ) : (
-                    <h6 className="[text-shadow:_0px_0.7vw_0.5vw_#3b3b3b]  font-shakila !font-extrabold  text-white text-stroke-red-500 text-nowrap text-[5.2vw] xl:text-[4.5vw] text-center">
-                      6 LAYERS OF PURE <br /> DELIGHT!
-                    </h6>
-                  )}
-                </div>
-                {/* <img
-                    src={isNight() ? textNight : textDay}
-                    className=" ml-[4vw]  z-30 w-full xl:h-full md:h-[150%] h-[80%] object-contain "
-                  /> */}
-              </motion.div>
-              {/* Buy Now */}
-              <motion.img
-                animate={{
-                  scale: [1, 1.1, 1], // Zoom in to 1.1x, then back to 1x
-                }}
-                transition={{
-                  duration: 0.9,
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  ease: "easeInOut",
-                }}
-                src={buyNowButton}
-                className="ml-[2vw] z-30 w-full mx-auto h-[5vw] object-contain "
-              />
-            </div>
-          </div>
-        </section>
+        </section> */}
       </div>
     </div>
   );
 }
 
 export default App;
+
+// TEMPERATURE
+// <div className=" flex z-20 left-0 justify-between">
+//   <div className="relative  bg-white pl-2 pr-[3.5vw]  items-center flex">
+//     <p className="font-shakila text-[4vw] text-[#9165c9] font-medium">
+//       {currTemperature}&deg;C
+//     </p>
+//     <img
+//       className="h-full scale-110 right-[-3.5vw] absolute"
+//       src={isNight() ? tempNight : tempDay}
+//     />
+//   </div>
+// </div>;
