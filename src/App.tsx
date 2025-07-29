@@ -121,14 +121,14 @@ function App() {
             src={logo}
             className="h-[14%] object-contain z-20 left-[25%] top-0 absolute"
           />
-          <div className="flex flex-col landscape:gap-[4vmax] gap-[3vw] justify-between  h-full z-20 relative w-[75%] pt-7 pb-[30%] ml-auto">
+          <div className="flex flex-col landscape:gap-[calc(3vmax+1%)] gap-[3vw] justify-between  h-full z-20 relative w-[75%] pt-7 pb-[30%] ml-auto">
             {/* TOPTEN */}
             <img
               src={topten}
-              className="h-[30%] object-contain z-20 right-[16%] xl:right-[25%] top-[7%] xl:top-[4%] "
+              className="h-[calc(25%+3vw)] object-contain z-20 right-[16%] xl:right-[25%] top-[7%] xl:top-[4%] "
             />
             {/* TEXT SECTION */}
-            <div className="h-[60%] flex flex-col justify-center">
+            <div className="h-[60%] flex flex-col justify-center gap-[0.5vw]">
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -146,9 +146,9 @@ function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, ease: "easeIn" }}
                 >
-                  <h6 className="[text-shadow:_0px_0.7vw_0.5vw_#3b3b3b]  font-shakila !font-extrabold text-stroke-red-500 text-white text-nowrap text-[5.2vw] xl:text-[4.5vw]  text-center">
+                  <h6 className="[text-shadow:_0px_0.7vw_0.5vw_#3b3b3b] leading-[5.5vw] font-shakila !font-extrabold text-stroke-red-500 text-white text-nowrap text-[calc(4.5vw+1%)] xl:text-[4.5vw]  text-center">
                     6 LAYERS OF
-                    <br /> CHOCOLATE BLISS!
+                    <br /> CHOCOLATE BLISS.
                   </h6>
                 </motion.div>
               ) : (
@@ -157,7 +157,7 @@ function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, ease: "easeIn" }}
                 >
-                  <h6 className="[text-shadow:_0px_0.7vw_0.5vw_#3b3b3b]  font-shakila !font-extrabold  text-white text-stroke-red-500 text-nowrap text-[5.2vw] xl:text-[4.5vw] text-center">
+                  <h6 className="[text-shadow:_0px_0.7vw_0.5vw_#3b3b3b] leading-12 font-shakila !font-extrabold  text-white text-stroke-red-500 text-nowrap text-[calc(4.5vw+1%)] xl:text-[4.5vw] text-center">
                     6 LAYERS OF PURE <br /> DELIGHT!
                   </h6>
                 </motion.div>
