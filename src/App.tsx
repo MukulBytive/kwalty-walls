@@ -122,19 +122,21 @@ function App() {
             ease: "easeInOut",
           }}
           src={flyingChocoBall}
-          className="absolute z-20 landscape:pl-[3%] w-full pt-[7vw] landscape:pr-[5vw]"
+          className="absolute z-20 landscape:pl-[3%] w-full pt-[calc(3vw)] landscape:pt-[calc(3.5vw+3.5vh)] landscape:pr-[calc(5vw)] pr-[calc(3vw)] h-full object-contain  border-red-500"
         />
 
         {/* LEFT SECTION */}
         <section className="w-[54.5%] bg-cover bg-no-repeat bg-[url(./assets/bgLeft.webp)] bg-[0%_65%]  border-white relative h-full  ">
           {/* LOGO */}
           <img
+            loading="lazy"
             src={logo}
             className="h-[14%] object-contain z-20 left-[25%] top-0 absolute"
           />
           <div className="flex flex-col landscape:gap-[calc(2vmax)] gap-[3vw] justify-between  h-full z-20 relative w-[75%] pt-7 pb-[calc(20%+0.5vmax)] ml-auto">
             {/* TOPTEN */}
             <img
+              loading="lazy"
               src={topten}
               className="h-[calc(25%+3vw)] landscape:h-[calc(6.5vw+6.5vh)] object-contain z-20 right-[16%] xl:right-[25%] landscape:top-[calc(2vh)] top-[7%] xl:top-[4%] "
             />
@@ -204,6 +206,7 @@ function App() {
             </div>
 
             <motion.img
+              loading="lazy"
               animate={{
                 scale: [1, 1.1, 1], // Zoom in to 1.1x, then back to 1x
               }}
@@ -219,6 +222,7 @@ function App() {
           </div>
 
           <img
+            loading="lazy"
             src={chocolateSplash}
             className="absolute w-auto h-[20vw] object-cover bottom-[-3vw] right-0"
           />
