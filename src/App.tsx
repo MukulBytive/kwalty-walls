@@ -131,16 +131,16 @@ function App() {
             {/* TOPTEN */}
             <img
               src={topten}
-              className="h-[calc(25%+3vw)] object-contain z-20 right-[16%] xl:right-[25%] top-[7%] xl:top-[4%] "
+              className="h-[calc(25%+3vw)] landscape:h-[calc(6.5vw+6.5vh)] object-contain z-20 right-[16%] xl:right-[25%] landscape:top-[calc(2vh)] top-[7%] xl:top-[4%] "
             />
             {/* TEXT SECTION */}
-            <div className="h-[60%] flex flex-col justify-center gap-[0.5vw]">
+            <div className="h-[60%] flex flex-col justify-center gap-[calc(0.25vw+0.25vh)]">
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeIn" }}
               >
-                <h6 className="font-shakila [text-shadow:_0px_5px_7px_#000000] shadow-black font-medium text-white text-[calc(3vw+2%)] text-nowrap text-center">
+                <h6 className="font-shakila [text-shadow:_0px_5px_7px_#000000] shadow-black font-medium text-white text-[calc(3vw+2%)] landscape:text-[calc(2.5vh+2vw)] text-nowrap text-center">
                   {isNight
                     ? " Let the Night Melt Away with"
                     : "Take a Midday Break with"}
@@ -152,7 +152,21 @@ function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, ease: "easeIn" }}
                 >
-                  <h6 className="[text-shadow:_0px_0.7vw_0.5vw_#3b3b3b] leading-[5.5vw] font-shakila !font-extrabold text-stroke-red-500 text-white text-nowrap text-[calc(4.5vw+1%)] xl:text-[4.5vw]  text-center">
+                  <h6
+                    className="
+                  [text-shadow:_0px_0.7vw_0.5vw_#3b3b3b] 
+                  landscape:leading-[calc(4vw+4vh)] 
+                  leading-[5.5vw]
+                  font-shakila 
+                  !font-extrabold  
+                  text-white 
+                  text-stroke-red-500 
+                  text-nowrap 
+                  landscape:text-[calc(3vw+3.5vh)] 
+                  text-[calc(4.5vw+1%)] 
+                  text-center
+                  "
+                  >
                     6 LAYERS OF
                     <br /> CHOCOLATE BLISS.
                   </h6>
@@ -163,7 +177,21 @@ function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, ease: "easeIn" }}
                 >
-                  <h6 className="[text-shadow:_0px_0.7vw_0.5vw_#3b3b3b] leading-[5.5vw] font-shakila !font-extrabold  text-white text-stroke-red-500 text-nowrap text-[calc(4.5vw+1%)] xl:text-[4.5vw] text-center">
+                  <h6
+                    className="
+                  [text-shadow:_0px_0.7vw_0.5vw_#3b3b3b] 
+                  landscape:leading-[calc(4vw+4vh)] 
+                  leading-[5.5vw]
+                  font-shakila 
+                  !font-extrabold  
+                  text-white 
+                  text-stroke-red-500 
+                  text-nowrap 
+                  landscape:text-[calc(3vw+3.5vh)] 
+                  text-[calc(4.5vw+1%)] 
+                  text-center
+                  "
+                  >
                     6 LAYERS OF PURE <br /> DELIGHT!
                   </h6>
                 </motion.div>
