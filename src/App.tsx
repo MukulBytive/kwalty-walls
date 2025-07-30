@@ -145,7 +145,7 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeIn" }}
               >
-                <h6 className="font-shakila [text-shadow:_0px_5px_7px_#000000] shadow-black font-medium text-white text-[calc(3vw+2%)] landscape:text-[calc(2.5vh+2vw)] text-nowrap text-center">
+                <h6 className="font-shakila [text-shadow:_0px_5px_7px_#000000] shadow-black font-medium text-white text-[calc(3vw+1%)] landscape:text-[calc(2vh+2vw)] text-nowrap text-center">
                   {isNight
                     ? " Let the Night Melt Away with"
                     : "Take a Midday Break with"}
@@ -253,7 +253,7 @@ function App() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
               src={pack}
-              className="absolute bottom-[22%] h-[60%] landscape:h-[calc(50%+5vmax)] left-[1%]  w-auto object-contain z-40"
+              className="absolute bottom-[22%] h-[60%] landscape:h-[calc(50%+5vmax)]  w-auto object-contain z-40"
             />
 
             <motion.img
@@ -266,14 +266,14 @@ function App() {
                 duration: 1,
               }}
               src={iceCream}
-              className={`left-[10vw] object-cover object-top absolute bottom-[-6vw] h-[120%] z-30`}
+              className={`left-[10vw] landscape:left-[calc(6vw+6vh)] object-cover object-top absolute bottom-[-6vw] h-[120%] z-30`}
             />
             <motion.img
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeIn", delay: 0.5 }}
               src={sixLayersOfExtra}
-              className="  bottom-[2%] z-10 h-[calc(25%+2vw)] left-[2%] absolute w-auto object-contain "
+              className="  bottom-[2%] z-10 h-[calc(23%+2vw)] left-[3%] absolute w-auto object-contain "
             />
           </div>
           {/* 
