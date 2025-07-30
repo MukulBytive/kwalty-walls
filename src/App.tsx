@@ -33,13 +33,19 @@ const DEFAULT_LOCATION = {
 function App() {
   const [currTemperature, setCurrTemperature] = useState(30);
   const hour = new Date().getHours();
-  const isNight = () => {
-    const now = new Date();
-    const hour = now.getHours(); // 0–23
-    // Night = before 5 AM or 5 PM onwards
-    return hour < 5 || hour >= 17;
-  };
+  const [isNight, setIsNight] = useState(false);
 
+  useEffect(() => {
+    setInterval(() => {
+      const isNight = () => {
+        const now = new Date();
+        const hour = now.getHours(); // 0–23
+        // Night = before 5 AM or 5 PM onwards
+        return hour < 5 || hour >= 17;
+      };
+      setIsNight(isNight())
+    }, 60 * 60 * 1000);
+  }, []);
   useEffect(() => {
     async function getTemperature() {
       // setLoading(true);
@@ -121,7 +127,7 @@ function App() {
             src={logo}
             className="h-[14%] object-contain z-20 left-[25%] top-0 absolute"
           />
-          <div className="flex flex-col landscape:gap-[calc(3vmax+1%)] gap-[3vw] justify-between  h-full z-20 relative w-[75%] pt-7 pb-[30%] ml-auto">
+          <div className="flex flex-col landscape:gap-[calc(2vmax)] gap-[3vw] justify-between  h-full z-20 relative w-[75%] pt-7 pb-[calc(20%+0.5vmax)] ml-auto">
             {/* TOPTEN */}
             <img
               src={topten}
@@ -134,13 +140,13 @@ function App() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1, ease: "easeIn" }}
               >
-                <h6 className="font-shakila [text-shadow:_0px_5px_7px_#000000] shadow-black font-medium text-white text-[3.1vw] text-nowrap text-center">
-                  {isNight()
+                <h6 className="font-shakila [text-shadow:_0px_5px_7px_#000000] shadow-black font-medium text-white text-[calc(3vw+2%)] text-nowrap text-center">
+                  {isNight
                     ? " Let the Night Melt Away with"
                     : "Take a Midday Break with"}
                 </h6>
               </motion.div>
-              {isNight() ? (
+              {isNight ? (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -157,7 +163,7 @@ function App() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, ease: "easeIn" }}
                 >
-                  <h6 className="[text-shadow:_0px_0.7vw_0.5vw_#3b3b3b] leading-12 font-shakila !font-extrabold  text-white text-stroke-red-500 text-nowrap text-[calc(4.5vw+1%)] xl:text-[4.5vw] text-center">
+                  <h6 className="[text-shadow:_0px_0.7vw_0.5vw_#3b3b3b] leading-[5.5vw] font-shakila !font-extrabold  text-white text-stroke-red-500 text-nowrap text-[calc(4.5vw+1%)] xl:text-[4.5vw] text-center">
                     6 LAYERS OF PURE <br /> DELIGHT!
                   </h6>
                 </motion.div>
@@ -188,7 +194,7 @@ function App() {
         {/* RIGHT SECTION */}
         <section
           className={`w-[45.5%] pt-[2vw] bg-cover flex flex-col h-full relative bg-no-repeat bg-[0%_65%] ${
-            isNight()
+            isNight
               ? "bg-[url(./assets/night/nightBg2.png)]"
               : "bg-[url(./assets/day/dayBg2.png)]"
           }`}
@@ -201,7 +207,7 @@ function App() {
               </p>
               <img
                 className="h-full scale-110 right-[-3.5vw] absolute"
-                src={isNight() ? tempNight : tempDay}
+                src={isNight ? tempNight : tempDay}
               />
             </div>
           </div>
