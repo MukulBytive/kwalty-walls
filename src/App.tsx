@@ -9,7 +9,6 @@ import buyNowButton from "./assets/buyNowButton.webp";
 import tempDay from "./assets/tempDay.webp";
 import tempNight from "./assets/tempNight.webp";
 import logo from "./assets/logo.webp";
-// import icecreamBg from "./assets/iceCreameBg.webp";
 import iceCream from "./assets/iceCream.webp";
 import sixLayersOfExtra from "./assets/sixLayers.webp";
 import pack from "./assets/pack.webp";
@@ -34,19 +33,18 @@ const DEFAULT_LOCATION = {
 function App() {
   const [currTemperature, setCurrTemperature] = useState(30);
   const hour = new Date().getHours();
-  // const [isMounted, setIsMounted] = useState(false);
   const [isNight, setIsNight] = useState(false);
-
   useEffect(() => {
+    function isNight(){
+      const now = new Date();
+      const hour = now.getHours();
+      // Night = before 5 AM or 5 PM onwards
+      return hour < 5 || hour >= 17;
+    }
     const interval = setInterval(() => {
-      const isNight = () => {
-        const now = new Date();
-        const hour = now.getHours(); // 0–23
-        // Night = before 5 AM or 5 PM onwards
-        return hour < 5 || hour >= 17;
-      };
       setIsNight(isNight());
     }, 60 * 60 * 1000);
+    setIsNight(isNight());
     return () => {
       clearInterval(interval);
     };
