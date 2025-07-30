@@ -2,17 +2,18 @@ import { useEffect, useState } from "react";
 
 import axios from "axios";
 
-import topten from "./assets/topten.png";
-import flyingChocoBall from "./assets/chocolateBall.png";
+import topten from "./assets/topten.webp";
+import flyingChocoBall from "./assets/chocolateBall.webp";
 import { motion } from "motion/react";
-import buyNowButton from "./assets/buyNowButton.png";
-import tempDay from "./assets/tempDay.png";
-import tempNight from "./assets/tempNight.png";
-import logo from "./assets/logo.png";
-// import icecreamBg from "./assets/iceCreameBg.png";
-import iceCream from "./assets/iceCream.png";
-import sixLayersOfExtra from "./assets/sixLayers.png";
-import pack from "./assets/pack.png";
+import buyNowButton from "./assets/buyNowButton.webp";
+import tempDay from "./assets/tempDay.webp";
+import tempNight from "./assets/tempNight.webp";
+import logo from "./assets/logo.webp";
+// import icecreamBg from "./assets/iceCreameBg.webp";
+import iceCream from "./assets/iceCream.webp";
+import sixLayersOfExtra from "./assets/sixLayers.webp";
+import pack from "./assets/pack.webp";
+import chocolateSplash from "./assets/chocolateSplash.webp";
 // import nightBg from "./assets/nightBg.png";
 // import chocolateBg from "./assets/chocolateBg.png";
 // import flyingChocoBallVertical from "./assets/flyingChocoballVertical.png";
@@ -22,7 +23,7 @@ import pack from "./assets/pack.png";
 // import icecream from "./assets/main/iceCream.png";
 // import tempNight from "./assets/main/tempNight.png";
 // import bgLeft from "./assets/bgLeft.png";
-import chocolateSplash from "./assets/chocolateSplash.png";
+// import CSSLoaderWrapper from "./CssWrapper";
 // import { isMobile } from "react-device-detect";
 
 const DEFAULT_LOCATION = {
@@ -33,18 +34,22 @@ const DEFAULT_LOCATION = {
 function App() {
   const [currTemperature, setCurrTemperature] = useState(30);
   const hour = new Date().getHours();
+  // const [isMounted, setIsMounted] = useState(false);
   const [isNight, setIsNight] = useState(false);
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       const isNight = () => {
         const now = new Date();
         const hour = now.getHours(); // 0–23
         // Night = before 5 AM or 5 PM onwards
         return hour < 5 || hour >= 17;
       };
-      setIsNight(isNight())
+      setIsNight(isNight());
     }, 60 * 60 * 1000);
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
   useEffect(() => {
     async function getTemperature() {
@@ -117,11 +122,11 @@ function App() {
             ease: "easeInOut",
           }}
           src={flyingChocoBall}
-          className="absolute z-20 pl-[3%]   pr-[5vw]"
+          className="absolute z-20 landscape:pl-[3%] w-full pt-[7vw] landscape:pr-[5vw]"
         />
 
         {/* LEFT SECTION */}
-        <section className="w-[54.5%] bg-cover bg-no-repeat bg-[url(./assets/bgLeft.png)] bg-[0%_65%]  border-white relative h-full  ">
+        <section className="w-[54.5%] bg-cover bg-no-repeat bg-[url(./assets/bgLeft.webp)] bg-[0%_65%]  border-white relative h-full  ">
           {/* LOGO */}
           <img
             src={logo}
@@ -223,8 +228,8 @@ function App() {
         <section
           className={`w-[45.5%] pt-[2vw] bg-cover flex flex-col h-full relative bg-no-repeat bg-[0%_65%] ${
             isNight
-              ? "bg-[url(./assets/night/nightBg2.png)]"
-              : "bg-[url(./assets/day/dayBg2.png)]"
+              ? "bg-[url(./assets/nightBg2.webp)]"
+              : "bg-[url(./assets/dayBg2.webp)]"
           }`}
         >
           {/* TEMPERATURE */}
